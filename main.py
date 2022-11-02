@@ -1,6 +1,9 @@
 import pygame
 from pygame.locals import *
 from game import Game
+import csv
+import pandas as pd
+from hdv import HDV
 pygame.init()
 
 # Give the window name
@@ -13,10 +16,14 @@ running = True
 moving = False
 # Import the Game() instance
 game = Game()
+# Import HDV() instance
+hdv = HDV()
 # Initialisation des variables permettant de recuperer les coordonners de la
 # souris avant et apres l'event de la souris
 x = 0
 y = 0
+# Lire un fichier csv avec pandas
+data = pd.read_csv("map_csv/map.csv")
 
 while running:
     game.update(screen)
@@ -36,7 +43,7 @@ while running:
             getx = x
             gety = y
             x, y = pygame.mouse.get_pos()
+            hdv.moving_hdv(x, y, getx, gety)
             game.back.moving_background(x, y, getx, gety)
-
 
 pygame.quit()
