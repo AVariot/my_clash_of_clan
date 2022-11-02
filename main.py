@@ -19,9 +19,7 @@ x = 0
 y = 0
 
 while running:
-    screen.blit(game.back.background_img, game.back.background_rect)
-    pygame.display.flip()
-    pygame.display.update()
+    game.update(screen)
     # Boucle event
     for event in pygame.event.get():
         # Pour quitter la fenetre, cliquer sur la petite croix

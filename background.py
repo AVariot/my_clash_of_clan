@@ -6,6 +6,7 @@ class Background():
         self.background_img = pygame.image.load('sprites/background_in_game.jpg')
         self.background_rect = self.background_img.get_rect()
 
+    #fonction qui permet de gerer les deplacement du background
     def moving_background(self, x, y, getx, gety):
         if x > getx and self.background_rect.centerx < 1710:
             self.moving_left(x, getx)
