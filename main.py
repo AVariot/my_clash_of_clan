@@ -44,5 +44,12 @@ while running:
             gety = y
             x, y = pygame.mouse.get_pos()
             game.back.moving_background(x, y, getx, gety)
+        # Faire la zone clickable sur l'HDV
+        if event.type == pygame.MOUSEBUTTONUP:
+            x, y = pygame.mouse.get_pos()
+            print(hdv.hdv1_zone_plus_x, x, hdv.hdv1_zone_moin_x)
+            if hdv.hdv1_zone_plus_x > x > hdv.hdv1_zone_moin_x:
+                if hdv.hdv1_zone_plus_y > y > hdv.hdv1_zone_moin_y:
+                    print("abcd")
 
 pygame.quit()
