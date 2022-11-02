@@ -43,7 +43,6 @@ while running:
             getx = x
             gety = y
             x, y = pygame.mouse.get_pos()
-            hdv.moving_hdv(x, y, getx, gety)
             game.back.moving_background(x, y, getx, gety)
 
 pygame.quit()
