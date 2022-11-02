@@ -7,25 +7,28 @@ class Background():
         self.background_rect = self.background_img.get_rect()
 
     def moving_background(self, x, y, getx, gety):
-        print(x, getx)
-        if x > getx:
-            self.moving_left()
-        if x < getx:
-            self.moving_rigth()
-        if y > gety:
-            self.moving_top()
-        if y < gety:
-            self.moving_bot()
+        if x > getx and self.background_rect.centerx < 1710:
+            self.moving_left(x, getx)
+        if x < getx and self.background_rect.centerx > 210:
+            self.moving_rigth(x, getx)
+        if y > gety and self.background_rect.centery < 700:
+            self.moving_top(y, gety)
+        if y < gety and self.background_rect.centery > 350:
+            self.moving_bot(y, gety)
 
     
-    def moving_left(self):
-        self.background_rect.x += 7
+    def moving_left(self, x, getx):
+        velocity = 6
+        self.background_rect.x += velocity
 
-    def moving_rigth(self):
-        self.background_rect.x -= 7
+    def moving_rigth(self, x, getx):
+        velocity = 6
+        self.background_rect.x -= velocity
 
-    def moving_top(self):
-        self.background_rect.y += 3
+    def moving_top(self, y, gety):
+        velocity = 3
+        self.background_rect.y += velocity
 
-    def moving_bot(self):
-        self.background_rect.y -= 3
+    def moving_bot(self, y, gety):
+        velocity = 3
+        self.background_rect.y -= velocity
